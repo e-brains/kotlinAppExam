@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kye.exercise06">
+
+    <!-- 재부팅 관련 권한승인 여부를 묻지 않고 바로 사용할 수 있다. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- 문자메시지를 수신한 경우 메시지 처리는 권한승인이 필요하다 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Exercise06">
+        <service
+            android:name=".ServiceClass3"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
+            android:name=".ServiceClass2"
+            android:exported="false" />
+        <service
+            android:name=".ServiceClass1"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".TestReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+
+                <!-- 안드로이드에서 제공되는 기본 메시지는 자동 완성으로 찾을 수 있다. -->
+                <!-- 재부팅 메시지. -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+
+                <!-- 문자수신을 위한 권한승인 팝업, 문자수신은 자동완성이 안된다. -->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

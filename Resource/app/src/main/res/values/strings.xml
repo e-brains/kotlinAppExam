@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Resource</string>
+    <string name="str1">안녕하세요.</string>
+    <string name="str2">반갑습니다.</string>
+    <string name="btn1">문자열 리소스</string>
+    <string name="btn2">문자열 배열</string>
+</resources>

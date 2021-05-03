@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    터치 후 이미지-->
+    <item android:drawable="@drawable/icon_stroke_edit_selected" android:state_pressed="true"></item>
+    <!--    기본 상태 : 터치 전 이미지-->
+    <item android:drawable="@drawable/icon_stroke_edit_normal"></item>
+</selector>
